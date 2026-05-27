@@ -1,0 +1,46 @@
+/* ================================
+   REEL VIDEO (FULLSCREEN ENGINE 🔥)
+================================ */
+.reelVideo {
+  position: absolute;
+
+  /* 🔥 PERFECT CENTER FIX */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /* 🎨 COLOR ENHANCEMENT */
+  filter: contrast(1.12) saturate(1.15) brightness(0.98);
+
+  /* 🚀 PERFORMANCE */
+  backface-visibility: hidden;
+  will-change: transform;
+
+  /* 🔥 INTERACTION SAFE */
+  pointer-events: none;
+}
+
+
+/* ================================
+   LOADING STATE (SMOOTH ENTRY)
+================================ */
+.reelVideo.loading {
+  filter: blur(20px) brightness(0.8);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+
+/* ================================
+   READY STATE (FINAL LOOK)
+================================ */
+.reelVideo.ready {
+  filter: contrast(1.12) saturate(1.15) brightness(0.98);
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: all 0.3s ease;
+}

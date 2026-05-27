@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pro Icons UI</title>
+
+<style>
+  body{
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+  }
+
+  /* ===== CONTAINER ===== */
+  .bar{
+    display:flex;
+    gap:40px; /* 🔥 balanced spacing */
+  }
+
+  /* ===== ICON WRAPPER ===== */
+  .icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transform:scale(0.85);
+    animation:fadeIn 0.35s ease forwards;
+  }
+
+  /* ===== GLOBAL SVG SIZE ===== */
+  .icon svg{
+    width:52px;
+    height:52px;
+    cursor:pointer;
+    transition:transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+  }
+
+  /* ===== HOVER ===== */
+  .icon:hover svg{
+    transform:scale(1.12);
+    opacity:0.95;
+    filter:drop-shadow(0 0 4px rgba(255,255,255,0.25));
+  }
+
+  /* ===== CLICK ===== */
+  .icon:active svg{
+    transform:scale(0.88);
+  }
+
+  /* ===== ACTIVE STATES ===== */
+
+  /* ❤️ LIKE ACTIVE */
+  .icon.like.active path{
+    fill:#ff3040;
+    stroke:#ff3040;
+  }
+
+  /* 🔖 SAVE ACTIVE */
+  .icon.save.active path{
+    fill:white;
+    stroke:white;
+  }
+
+  /* ===== FADE IN ===== */
+  @keyframes fadeIn{
+    to{
+      opacity:1;
+      transform:scale(1);
+    }
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="bar">
+
+  <!-- ❤️ LIKE -->
+  <div class="icon like"></div>
+
+  <!-- 💬 COMMENT -->
+  <div class="icon comment"></div>
+
+  <!-- ✈️ SHARE -->
+  <div class="icon share"></div>
+
+  <!-- 🔖 SAVE -->
+  <div class="icon save"></div>
+
+</div>
+
+<script>
+const PATHS = {
+  like: "./global_css/like.html",
+  comment: "./global_css/comment.html",
+  share: "./global_css/share.html",
+  save: "./global_css/svg.html"
+};
+
+/* ===== CACHE ===== */
+const cache = {};
+
+/* ===== LOAD FUNCTION ===== */
+function loadIcon(type){
+  if(cache[type]){
+    inject(type, cache[type]);
+    return;
+  }
+
+  fetch(PATHS[type])
+    .then(res => res.text())
+    .then(svg => {
+      cache[type] = svg;
+      inject(type, svg);
+    })
+    .catch(err=>{
+      console.error(`❌ ${type} load failed:`, err);
+    });
+}
+
+/* ===== INJECT ===== */
+function inject(type, svg){
+  document.querySelectorAll("." + type).forEach(el=>{
+    el.innerHTML = svg;
+
+    // 🔥 CLICK TOGGLE (LIKE + SAVE)
+    if(type === "like" || type === "save"){
+      el.addEventListener("click", ()=>{
+        el.classList.toggle("active");
+      });
+    }
+  });
+}
+
+/* ===== INIT ===== */
+Object.keys(PATHS).forEach(loadIcon);
+</script>
+
+</body>
+</html>

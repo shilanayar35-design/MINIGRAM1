@@ -1,0 +1,96 @@
+<!DOCTYPE html> 
+<html lang="hi">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MiniGram</title>
+
+<!-- ================= ICONS ================= -->
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600&family=Open+Sans:wght@400;500&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+<!-- ================= CSS (🔥 ORDER FIXED) ================= -->
+
+<link rel="stylesheet" href="global_css/variables.css">
+<link rel="stylesheet" href="global_css/base.css">
+<link rel="stylesheet" href="global_css/layout.css">
+<link rel="stylesheet" href="global_css/components.css">
+<link rel="stylesheet" href="global_css/animations.css">
+
+<!-- ================= SUPABASE ================= -->
+
+<script src="https://unpkg.com/@supabase/supabase-js@1"></script>
+
+</head>
+
+<body>
+
+<!-- ================= LOADER ================= -->
+
+<div id="loader">
+
+  <div class="simpleSpinner"></div>
+
+</div>
+
+<!-- ================= APP BAR ================= -->
+
+<header class="appbar hidden" id="appbar">
+  <div class="title">MiniGram</div>
+
+  <div class="appbarIcons">
+    <span class="material-symbols-outlined" onclick="loadPage('home')">refresh</span>
+    <span class="material-symbols-outlined" onclick="createPost()">add_box</span>
+    <span class="material-symbols-outlined" onclick="openNotifications()">favorite</span>
+    <span class="material-symbols-outlined" onclick="openChat()">chat</span>
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+
+<main id="mainContent"></main>
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast"></div>
+
+<!-- ================= NAV ================= -->
+
+<nav class="bottomNav hidden" id="bottomNav">
+
+  <div class="navIcon active" onclick="loadPage('home')">
+    <span class="material-symbols-outlined">home</span>
+  </div>
+
+  <div class="navIcon" onclick="loadPage('search')">
+    <span class="material-symbols-outlined">search</span>
+  </div>
+
+  <div class="navIcon" onclick="createPost()">
+    <span class="material-symbols-outlined addBtn">add_circle</span>
+  </div>
+
+  <div class="navIcon" onclick="loadPage('profile')">
+    <span class="material-symbols-outlined">person</span>
+  </div>
+
+  <div class="navIcon" onclick="loadPage('reels')">
+    <span class="material-symbols-outlined">slideshow</span>
+  </div>
+
+</nav>
+
+<!-- ================= DEBUG (OPTIONAL) ================= -->
+
+<script src="eruda.min.js"></script>
+
+<!-- ================= BOOT ================= -->
+<script src="main_js/boot.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+/* ========================================= */
+/* 🌍 ROOT SYSTEM */
+/* ========================================= */
+:root {
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+
+  --text-main: rgba(255,255,255,0.95);
+  --text-muted: rgba(255,255,255,0.4);
+
+  --accent: #ff3040;
+}
+
+/* ========================================= */
+/* 🔘 RESET */
+/* ========================================= */
+button {
+  all: unset;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ========================================= */
+/* 🔥 BUTTON (CTA) */
+/* ========================================= */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(0.92);
+}
+
+/* ========================================= */
+/* 🧊 GLASS BUTTON */
+/* ========================================= */
+.glassBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 2px 8px rgba(0,0,0,0.6);
+
+  transition: all 0.25s ease;
+}
+
+.glassBtn.small {
+  width: 30px;
+  height: 30px;
+}
+
+/* ICON */
+.glassBtn svg {
+  width: 22px;
+  height: 22px;
+
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+
+  transition: all 0.25s ease;
+}
+
+/* HOVER */
+.glassBtn:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* CLICK PRESS EFFECT */
+.glassBtn:active {
+  transform: scale(0.8);
+  background: rgba(255,255,255,0.15);
+}
+
+/* ========================================= */
+/* ❤️ LIKE ANIMATION */
+/* ========================================= */
+
+/* ACTIVE STATE */
+.likeBtn.active {
+  background: rgba(255,48,64,0.15);
+  border-color: rgba(255,48,64,0.4);
+}
+
+/* HEART POP INSIDE BUTTON */
+.likeBtn.active svg {
+  stroke: #ff3040;
+  fill: #ff3040;
+
+  animation: likePop 0.35s ease;
+}
+
+/* SCALE POP */
+@keyframes likePop {
+  0%   { transform: scale(0.7); }
+  50%  { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* SAVE */
+.saveBtn.active svg {
+  fill: #fff;
+}
+
+/* ========================================= */
+/* 💖 DOUBLE TAP HEART BLAST */
+/* ========================================= */
+.heartPop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 80px;
+
+  color: var(--accent);
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.heartPop.show {
+  animation: heartBlast 0.7s ease forwards;
+}
+
+@keyframes heartBlast {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ========================================= */
+/* 📱 FEED */
+/* ========================================= */
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* 🔥 spacing between posts */
+  padding: 6px 10px;
+}
+
+/* ========================================= */
+/* 🧾 POST (CARD STYLE 🔥 FINAL FIXED) */
+/* ========================================= */
+.post {
+  background: var(--surface);              
+  border-radius: 16px;                     /* 🔥 smooth corners */
+  
+  padding-bottom: 6px;
+
+  /* 🔥 IMPORTANT FIX: makes curve visible */
+  border: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);  /* depth */
+
+  overflow: hidden;                        /* clean edges */
+}
+
+/* ========================================= */
+/* 🧑 HEADER */
+/* ========================================= */
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: var(--space-md);
+  gap: 10px; /* 🔥 better spacing */
+}
+
+/* LEFT SIDE (AVATAR + NAME) */
+.postHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* 🔥 AVATAR FIX */
+.postHeaderLeft img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ================= USERNAME ================= */
+.username {
+  font-family: var(--font-title);   /* 🔥 premium title font */
+  font-size: 15px;
+  font-weight: 600;
+
+  color: var(--text-main);
+
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= HEADER RIGHT (DOTS) ================= */
+.postHeaderRight {
+  opacity: 0.6;                    /* 🔥 less priority */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+/* 🔥 TOUCH FEEDBACK */
+.postHeaderRight:active {
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+/* ========================================= */
+/* 🖼 IMAGE CONTAINER (FINAL FIXED) */
+/* ========================================= */
+.postImageContainer {
+  position: relative;
+
+  width: calc(100% - 16px);
+  margin: 8px auto;
+
+  aspect-ratio: 1/1;
+
+  background: linear-gradient(145deg, #121212, #0c0c0c);
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.6),
+    0 8px 24px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 🔥 TOP LIGHT GLOW */
+.postImageContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    transparent 40%
+  );
+
+  pointer-events: none;
+}
+
+/* 🔥 PRESS FEEL */
+.postImageContainer:active {
+  transform: scale(0.98);
+
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.7),
+    0 6px 16px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* IMAGE */
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+
+  /* 🔥 AUTO MATCH CONTAINER CURVE */
+  border-radius: inherit;
+
+  /* 🔥 smooth feel */
+  transition: 
+    transform 0.3s ease,
+    opacity 0.25s ease;
+
+  /* 🔥 mobile rendering boost */
+  will-change: transform;
+  backface-visibility: hidden;
+
+  opacity: 1;
+}
+
+/* 🔥 TOUCH ZOOM */
+.postImage:active {
+  transform: scale(1.03);
+}
+
+/* LOADING STATE */
+.postImageContainer.loading{
+  position: relative;
+  overflow: hidden;
+  background: #1c1c1c;
+}
+
+/* SHIMMER */
+.postImageContainer.loading::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.10),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  animation: shimmerMove 1.2s infinite linear;
+}
+
+/* LOADED STATE */
+.postImageContainer.loaded{
+  background: transparent;
+}
+
+.postImageContainer.loaded .postImage{
+  opacity: 1;
+}
+
+.post {
+  margin-bottom: 16px;
+
+  background: #0f0f0f; /* 🔥 better than var(--surface) */
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* 🔥 REAL DEPTH */
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ========================================= */
+/* ⚡ ACTIONS */
+/* ========================================= */
+.postActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--space-sm) var(--space-md);
+  margin-top: 4px;
+}
+
+.postActionsLeft {
+  display: flex;
+  gap: 14px;
+}
+
+/* 🔥 ICON INTERACTION */
+.postActions span {
+  transition: 0.2s ease;
+}
+
+.postActions span:active {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+/* ========================================= */
+/* 📝 TEXT */
+/* ========================================= */
+.postLikes {
+  padding: var(--space-sm) var(--space-md) 0;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  font-family: var(--font-title);
+}
+
+/* 🔥 CAPTION */
+.postCaption {
+  padding: var(--space-xs) var(--space-md);
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  font-family: var(--font-caption);
+}
+
+/* 🔥 USERNAME INSIDE CAPTION */
+.postCaption b {
+  font-family: var(--font-title);
+  margin-right: 6px;
+}
+
+/* 🔥 TIME */
+.postTime {
+  padding: var(--space-sm) var(--space-md);
+
+  font-size: 10px;
+  color: var(--text-muted);
+
+  opacity: 0.7;
+  letter-spacing: 0.3px;
+}
+
+/* ========================================= */
+/* 🔔 TOAST */
+/* ========================================= */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+
+  background: rgba(30,30,30,0.9);
+  backdrop-filter: blur(12px);
+
+  padding: 10px 16px;
+  border-radius: 20px;
+
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================= */
+/* ⚡ MICRO */
+/* ========================================= */
+* {
+  user-select: none;
+}
+
+.postCaption,
+.postLikes {
+  user-select: text;
+  font-family: var(--font-caption);
+}
+
+#loader{
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #000;
+
+  z-index: 99999;
+
+}
+
+.simpleSpinner{
+
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  border:
+  4px solid
+  rgba(255,255,255,.15);
+
+  border-top:
+  4px solid #fff;
+
+  animation:
+  spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+
+}

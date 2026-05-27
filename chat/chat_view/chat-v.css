@@ -1,0 +1,797 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+}
+
+body{
+  background:#000 !important;
+  color:#fff;
+  overflow:hidden;
+
+  /*  IMPORTANT */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+.chatContainer{
+  height:100dvh;
+  display:flex;
+  flex-direction:column;
+  background:#000;
+}
+
+/* ================================
+   🔥 HEADER (PRO FIXED)
+================================ */
+.chatHeader{
+  height:60px;
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 12px;
+
+  /* 🔥 PREMIUM BACKGROUND */
+  background:linear-gradient(to bottom, #000, #0a0a0a);
+
+  /* subtle border */
+  border-bottom:1px solid rgba(255,255,255,0.06);
+
+  /* depth */
+  box-shadow:0 2px 10px rgba(0,0,0,0.6);
+
+  /* glass feel */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  position:relative;
+  z-index:10;
+}
+
+/* 🔥 PREMIUM GLOW LINE */
+.chatHeader::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:1px;
+
+  background:linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.2),
+    transparent
+  );
+
+  opacity:0.6;
+}
+
+/* ================================
+   BACK BUTTON
+================================ */
+.backBtn{
+  width:40px;
+  height:40px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  transition:0.15s;
+}
+
+.backBtn:active{
+  background:rgba(255,255,255,0.08);
+  transform:scale(0.9);
+}
+
+/* ================================
+   🔥 PERFECT CENTER USER INFO
+================================ */
+.userInfo{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  max-width:70%;
+  overflow:hidden;
+}
+
+/* ================================
+   AVATAR WRAPPER
+================================ */
+.avatarWrapper{
+  position:relative;
+  flex-shrink:0;
+}
+
+/* AVATAR */
+.chatUserAvatar{
+  width:38px;
+  height:38px;
+
+  border-radius:50%;
+  object-fit:cover;
+
+  border:1px solid rgba(255,255,255,0.15);
+}
+
+/* 🟢 ONLINE DOT (PREMIUM) */
+.avatarWrapper::after{
+  content:"";
+  position:absolute;
+  right:1px;
+  bottom:1px;
+
+  width:9px;
+  height:9px;
+
+  background:#00ff88;
+  border-radius:50%;
+  border:2px solid #000;
+
+  box-shadow:0 0 6px rgba(0,255,136,0.6);
+}
+
+/* ================================
+   TEXT SIDE
+================================ */
+.userText{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  line-height:1.15;
+
+  overflow:hidden;
+}
+
+/* NAME */
+.chatUserName{
+  font-size:15px;
+  font-weight:600;
+
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* STATUS */
+.userStatus{
+  font-size:11.5px;
+  opacity:0.65;
+
+  white-space:nowrap;
+}
+
+/* ================================
+   ICON PILL
+================================ */
+.actions{
+  display:flex;
+  align-items:center;
+  background:#111;
+  border-radius:20px;
+  padding:4px;
+  gap:4px;
+}
+
+.actions .iconBtn{
+  width:32px;
+  height:32px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+  transition:0.15s;
+}
+
+.actions .iconBtn:active{
+  background:rgba(255,255,255,0.1);
+  transform:scale(0.85);
+}
+
+/* ================================
+   MESSAGES
+================================ */
+.chatMessages{
+  flex:1;
+  overflow-y:auto;
+
+  padding:14px 10px;
+  padding-bottom:120px;   /*  BIG SPACE */
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  /*  SMOOTH SCROLL */
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+
+.chatMessages::after{
+  content:"";
+  height:40px;   /*  FINAL PUSH SPACE */
+  flex-shrink:0;
+}
+
+/* ================================
+   INPUT INTERACTIONS (ULTRA PREMIUM)
+================================ */
+
+/*  BASE SMOOTH */
+.chatInputWrapper{
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.2s ease;
+}
+
+/*  HOVER FLOAT */
+.chatInputWrapper:hover{
+  transform:translateY(-1px);
+}
+
+/*  FOCUS (TYPING GLOW) */
+.chatInputWrapper:focus-within{
+  transform:translateY(-1px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 10px 30px rgba(255,255,255,0.08);
+}
+
+/*  ACTIVE PRESS (REAL TOUCH FEEL) */
+.chatInputWrapper:active{
+  transform:scale(0.98);
+}
+
+/* ================================
+   MESSAGE
+================================ */
+.msg{
+  max-width:75%;
+  padding:10px 14px;
+
+  border-radius:16px;
+  font-size:13.5px;
+  line-height:1.45;
+
+  display:flex;
+  flex-direction:column;
+
+  animation:msgIn 0.25s ease;
+
+  word-break:break-word;
+  white-space:pre-wrap;
+
+  transition:0.15s;
+
+  /*  ULTRA FIX */
+  contain: layout paint;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* GROUP */
+.msg + .msg{
+  margin-top:4px;
+}
+
+/* ME */
+.msg.me{
+  align-self:flex-end;
+  background:#fff;
+  color:#000;
+
+  border-bottom-right-radius:5px;
+
+  box-shadow:
+    0 4px 12px rgba(255,255,255,0.15),
+    0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* OTHER */
+.msg.other{
+  align-self:flex-start;
+  background:#121212;
+
+  border-bottom-left-radius:5px;
+
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* TAIL */
+.msg.me::after{
+  content:"";
+  position:absolute;
+  right:-4px;
+  bottom:0;
+  width:9px;
+  height:9px;
+  background:#fff;
+  clip-path:polygon(0 0, 100% 100%, 0 100%);
+}
+
+.msg.other::after{
+  content:"";
+  position:absolute;
+  left:-4px;
+  bottom:0;
+  width:9px;
+  height:9px;
+  background:#121212;
+  clip-path:polygon(100% 0, 100% 100%, 0 100%);
+}
+
+/* PRESS */
+.msg:active{
+  transform:scale(0.96);
+}
+
+/* ================================
+   TEXT GAP FIX
+================================ */
+.msg > div:first-child{
+  margin-bottom:2px;
+}
+
+/* ================================
+   META (🔥 CLEAN FLOW)
+================================ */
+.msgMeta{
+  font-size:10px;
+  margin-top:4px;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:4px;
+
+  opacity:0.75;
+}
+
+/* OTHER SIDE */
+.msg.other .msgMeta{
+  justify-content:flex-start;
+  opacity:0.6;
+}
+
+/* ================================
+   TIME
+================================ */
+.msgMeta .time{
+  opacity:0.6;
+  font-weight:400;
+}
+
+/* ================================
+   SVG TICKS (🔥 CLEAN + SHARP)
+================================ */
+.ticks{
+  display:flex;
+  align-items:center;
+  gap:1px;
+
+  margin-left:2px;
+  opacity:0.6;
+
+  transition:0.2s ease;
+}
+
+/* SVG */
+.ticks svg{
+  width:12px;
+  height:12px;
+
+  stroke:#888;
+  stroke-width:2.2;
+  fill:none;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* SINGLE */
+.ticks.single{
+  opacity:0.5;
+}
+
+/* DOUBLE */
+.ticks.double{
+  opacity:0.6;
+}
+
+/* SEEN (🔥 CLEAN BLUE) */
+.ticks.seen{
+  opacity:1;
+}
+
+.ticks.seen svg{
+  stroke:#53bdeb;
+}
+
+/* ================================
+   SMOOTH POLISH
+================================ */
+.msgMeta,
+.ticks,
+.msgMeta .time{
+  transition:all 0.2s ease;
+}
+
+/* PRESS FEEDBACK */
+.msg:active .msgMeta{
+  opacity:0.5;
+}
+
+/* ================================
+   ANIMATION
+================================ */
+@keyframes msgIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(0.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   📸 IMAGE MESSAGE
+================================ */
+.msg img{
+  max-width:180px;
+  border-radius:12px;
+  display:block;
+  margin-top:5px;
+}
+
+/* ================================
+   🎤 VOICE MESSAGE
+================================ */
+.voiceMsg{
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  background:rgba(255,255,255,0.1);
+  padding:6px 10px;
+  border-radius:12px;
+
+  font-size:12px;
+}
+
+/* ================================
+   TYPING
+================================ */
+.typing{
+  display:flex;
+  gap:4px;
+  padding:6px 10px;
+}
+
+.typing span{
+  width:5px;
+  height:5px;
+  background:#aaa;
+  border-radius:50%;
+  animation:blink 1s infinite;
+}
+
+.typing span:nth-child(2){ animation-delay:0.2s }
+.typing span:nth-child(3){ animation-delay:0.4s }
+
+/* ================================
+   INPUT
+================================ */
+.chatInputBox{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:14px;
+
+  z-index:1000;
+
+  padding:6px 12px calc(10px + env(safe-area-inset-bottom));
+
+  background: transparent;
+
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.chatInputWrapper{
+  display:flex;
+  align-items:center;
+
+  min-height:48px;
+  padding:6px 12px;
+
+  border-radius:28px;
+
+  /* MORE SIDE GAP */
+  margin:0 10px;
+
+  /*  SAFE FALLBACK BACKGROUND (NO GLITCH) */
+  background: rgba(25,25,28,0.95);
+
+  /* ULTRA FLOAT SHADOW */
+  box-shadow:
+    0 20px 40px rgba(0,0,0,1),
+    0 4px 12px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  border:1px solid rgba(255,255,255,0.06);
+
+  /*  IMPORTANT FIX (NO GLITCH) */
+  transform: translateZ(0);
+  will-change: transform;
+
+  /*  PRE-RENDER FIX (NO FIRST FRAME GLITCH) */
+  opacity: 0;
+  animation: fixRender 0.2s ease forwards;
+
+  transition:all 0.2s ease;
+}
+
+/*  APPLY BLUR ONLY IF SUPPORTED (SAFE MODE) */
+@supports (backdrop-filter: blur(12px)) {
+  .chatInputWrapper{
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* slightly transparent when blur works */
+    background: rgba(25,25,28,0.75);
+  }
+}
+
+/*  PRE-RENDER ANIMATION */
+@keyframes fixRender{
+  to{
+    opacity:1;
+  }
+}
+
+/* FOCUS */
+.chatInputWrapper:focus-within{
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.18),
+    0 6px 25px rgba(255,255,255,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ICON */
+.iconBtn{
+  width:34px;
+  height:34px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  opacity:0.7;
+  transition:0.15s;
+}
+
+.iconBtn:active{
+  transform:scale(0.85);
+}
+
+/* ================================
+    AUTO EXPAND INPUT (FINAL)
+================================ */
+.chatInput{
+  flex:1;
+
+  border:none;
+  outline:none;
+
+  background:transparent;
+  color:#fff;
+
+  font-size:14px;
+  line-height:1.4;
+
+  /*  IMPORTANT FIXES */
+  resize:none;              /* remove resize handle */
+  overflow-y:auto;          /* scroll after limit */
+  max-height:120px;         /* ~5 lines max */
+
+  padding:6px 0;
+
+  display:block;
+
+  /*  SMOOTH FEEL */
+  transition:height 0.1s ease;
+
+  /*  BETTER TEXT BEHAVIOR */
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* PLACEHOLDER */
+.chatInput::placeholder{
+  color:rgba(255,255,255,0.4);
+}
+
+/*  SCROLLBAR CLEAN (OPTIONAL PRO TOUCH) */
+.chatInput::-webkit-scrollbar{
+  width:4px;
+}
+
+.chatInput::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,0.2);
+  border-radius:10px;
+}
+
+/* SEND */
+.sendBtn{
+  width:36px;
+  height:36px;
+
+  border:none;
+  border-radius:50%;
+
+  background:#fff;
+  color:#000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:0.15s;
+
+  opacity:0.5;
+  transform:scale(0.95);
+}
+
+.sendBtn.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+.sendBtn:active{
+  transform:scale(0.85);
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+@keyframes msgIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(0.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+@keyframes blink{
+  0%,80%,100%{opacity:0}
+  40%{opacity:1}
+}
+
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(0,255,136,0.7); }
+  70%{ box-shadow:0 0 0 6px rgba(0,255,136,0); }
+  100%{ box-shadow:0 0 0 0 rgba(0,255,136,0); }
+}
+
+/* ================================
+ ULTRA PREMIUM LONG PRESS MENU
+================================ */
+.msgMenu{
+  position:fixed;
+  top:0;
+  left:0;
+
+  display:flex;
+  align-items:center;
+  gap:6px;
+
+  padding:6px;
+
+  border-radius:18px;
+
+  /*  GLASS */
+  background:rgba(40,40,42,0.78);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+
+  /*  CLEAN BORDER */
+  border:1px solid rgba(255,255,255,0.06);
+
+  /*  DEPTH FIX (LESS DIRTY SHADOW) */
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+
+  /*  SIZE STABILITY (IMPORTANT FIX) */
+  min-width:140px;
+
+  /* HIDDEN */
+  opacity:0;
+  pointer-events:none;
+  transform:scale(0.9) translateY(8px);
+
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+
+  z-index:9999;
+}
+
+/* SHOW */
+.msgMenu.show{
+  opacity:1;
+  pointer-events:auto;
+  transform:scale(1) translateY(0);
+}
+
+/* ================================
+MENU ITEM
+================================ */
+.menuItem{
+  padding:10px 14px;
+
+  font-size:13.5px;
+  font-weight:500;
+
+  border-radius:12px;
+
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  white-space:nowrap; /*  TEXT BREAK FIX */
+
+  transition:0.12s ease;
+}
+
+/* PRESS */
+.menuItem:active{
+  background:rgba(255,255,255,0.14);
+  transform:scale(0.96);
+}
+
+/* ================================
+DIVIDER (CLEAN FIX)
+================================ */
+.menuItem + .menuItem{
+  position:relative;
+  margin-left:4px;
+}
+
+.menuItem + .menuItem::before{
+  content:"";
+  position:absolute;
+  left:-2px;
+  top:22%;
+  bottom:22%;
+  width:1px;
+  background:rgba(255,255,255,0.06);
+}

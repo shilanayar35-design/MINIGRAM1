@@ -1,0 +1,492 @@
+/* ==================================================
+    MINIGRAM HOME CSS (FINAL LIGHTWEIGHT)
+================================================== */
+
+/* ===== ROOT ===== */
+:root{
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+
+  --text-main:
+  rgba(255,255,255,.95);
+
+  --text-secondary:
+  rgba(255,255,255,.75);
+
+  --text-muted:
+  rgba(255,255,255,.4);
+
+  --bottom-nav-height: 75px;
+
+  --hover-opacity: .06;
+
+  --anim-speed: .18;
+
+}
+
+/* ===== GLOBAL ===== */
+*{
+
+  box-sizing: border-box;
+
+}
+
+/* ===== HTML / BODY ===== */
+html,
+body{
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: #000;
+
+  -webkit-overflow-scrolling: touch;
+
+  text-rendering: optimizeSpeed;
+
+}
+
+/* ===== ROOT ===== */
+#homeRoot{
+
+   width: 100%;
+
+   min-height: 100vh;
+
+  flex-direction: column;
+  
+  overflow-x: hidden;
+
+  padding-bottom:
+  calc(
+    var(--bottom-nav-height)
+    + 10px
+  );
+
+}
+
+/* ===== FEED ===== */
+.feed{
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  height: auto;
+
+  overflow: visible;
+
+  padding-bottom:
+  var(--bottom-nav-height);
+
+}
+
+/* ===== POST ===== */
+.post{
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom:
+  var(--space-sm);
+
+  border-bottom:
+  1px solid
+  rgba(255,255,255,.04);
+
+  /* 🚀 GPU PERFORMANCE */
+  will-change: transform;
+
+  transform: translateZ(0);
+
+  backface-visibility: hidden;
+
+  /* 🚀 PERFORMANCE */
+  content-visibility: auto;
+
+  contain: layout paint;
+
+  contain-intrinsic-size: 700px;
+
+  overflow-anchor: none;
+
+  /* 🚀 LIGHT ANIMATION */
+  animation:
+  fadeIn
+  calc(var(--anim-speed) * 1s)
+  ease-out;
+
+}
+
+/* ===== NO ANIMATION ===== */
+.noAnim{
+
+  animation: none !important;
+
+}
+
+/* ===== HEADER ===== */
+.postHeader{
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+  var(--space-md);
+
+}
+
+.postHeaderLeft{
+
+  display: flex;
+
+  align-items: center;
+
+  gap:
+  var(--space-sm);
+
+}
+
+/* ===== AVATAR ===== */
+.avatar{
+
+  width: 34px;
+
+  height: 34px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  display: block;
+
+  background: #111;
+
+}
+
+/* ===== REMOVE SHADOW ===== */
+.noShadow .avatar{
+
+  box-shadow: none !important;
+
+}
+
+/* ===== USERNAME ===== */
+.username{
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: .2px;
+
+  color:
+  var(--text-main);
+
+}
+
+/* ===== IMAGE CONTAINER ===== */
+.postImageContainer{
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  background: #0a0a0a;
+
+  border-top:
+  1px solid
+  rgba(255,255,255,.03);
+
+  border-bottom:
+  1px solid
+  rgba(255,255,255,.03);
+
+  contain: paint;
+
+}
+
+/* ===== IMAGE ===== */
+.postImage{
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  object-fit: cover;
+
+  contain: paint;
+
+  image-rendering: auto;
+
+}
+
+/* ===== ACTIONS ===== */
+.postActions{
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+  var(--space-sm)
+  var(--space-md);
+
+}
+
+.postActionsLeft{
+
+  display: flex;
+
+  align-items: center;
+
+  gap:
+  var(--space-sm);
+
+}
+
+/* ===== BUTTON ===== */
+.postActionsLeft button{
+
+  width: 36px;
+
+  height: 36px;
+
+  padding: 0;
+
+  border: none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  background: transparent;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  /*  LIGHTWEIGHT */
+  transition:
+  background .15s ease,
+  opacity .12s ease;
+
+}
+
+/* ===== HOVER ===== */
+.postActionsLeft button:hover{
+
+  background:
+  rgba(
+    255,
+    255,
+    255,
+    var(--hover-opacity)
+  );
+
+}
+
+/* ===== ACTIVE ===== */
+.postActionsLeft button:active{
+
+  opacity: .7;
+
+  background:
+  rgba(255,255,255,.1);
+
+}
+
+/* ===== ICON ===== */
+.postActions svg{
+
+  width: 22px;
+
+  height: 22px;
+
+  flex-shrink: 0;
+
+}
+
+/* ===== REMOVE COMMENTS ===== */
+.noComments .commentBtn{
+
+  display: none !important;
+
+}
+
+/* ===== LIKES ===== */
+.postLikes{
+
+  padding:
+  var(--space-sm)
+  var(--space-md)
+  0;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color:
+  var(--text-main);
+
+}
+
+/* ===== CAPTION ===== */
+.postCaption{
+
+  padding:
+  var(--space-xs)
+  var(--space-md);
+
+  font-size: 14px;
+
+  line-height: 1.45;
+
+  color:
+  var(--text-secondary);
+
+  word-break: break-word;
+
+  overflow-wrap: break-word;
+
+}
+
+/* ===== CAPTION USERNAME ===== */
+.postCaption b{
+
+  font-weight: 600;
+
+  margin-right: 4px;
+
+  color:
+  var(--text-main);
+
+}
+
+/* ===== TIME ===== */
+.postTime{
+
+  padding:
+  var(--space-sm)
+  var(--space-md)
+  var(--space-md);
+
+  font-size: 11px;
+
+  letter-spacing: .3px;
+
+  color:
+  var(--text-muted);
+
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottomNav{
+
+  position: fixed;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  height:
+  var(--bottom-nav-height);
+
+  z-index: 999;
+
+  /*  NO BLUR */
+  backdrop-filter: none;
+
+  -webkit-backdrop-filter: none;
+
+  background:
+  rgba(20,20,20,.92);
+
+  border-top:
+  1px solid
+  rgba(255,255,255,.05);
+
+}
+
+/* ===== LIGHTWEIGHT ANIMATION ===== */
+@keyframes fadeIn{
+
+  from{
+
+    opacity: 0;
+
+  }
+
+  to{
+
+    opacity: 1;
+
+  }
+
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px){
+
+  .post{
+
+    contain-intrinsic-size: 600px;
+
+  }
+
+  .postActionsLeft button{
+
+    width: 34px;
+
+    height: 34px;
+
+  }
+
+  .postActions svg{
+
+    width: 21px;
+
+    height: 21px;
+
+  }
+
+}
+
+/* ===== LOW-END DEVICES ===== */
+@media (prefers-reduced-motion: reduce){
+
+  *{
+
+    animation: none !important;
+
+    transition: none !important;
+
+  }
+
+}

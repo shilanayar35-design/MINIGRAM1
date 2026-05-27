@@ -1,0 +1,185 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    270deg,
+    #7bed9f,
+    #2ed573,
+    #1eae60,
+    #0b8f4d,
+    #046b3b
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  perspective: 1200px;
+  position: relative;
+}
+
+/* ================= WAVE ================= */
+body::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255,255,255,0.08),
+    transparent 60%
+  );
+  animation: waveMove 10s linear infinite;
+  z-index: 0;
+}
+
+/* ================= RIPPLE LAYER ================= */
+.ripple-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%) scale(0);
+  animation: rippleEffect 1s ease-out;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes rippleEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes waveMove {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ================= CARD ================= */
+.login-container {
+  width: 340px;
+  padding: 30px 26px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(0, 0, 0, 0.15) inset;
+  animation: floatCard 5s ease-in-out infinite;
+  z-index: 2;
+  position: relative;
+}
+
+/* ================= LOGO ================= */
+.logo {
+  font-size: 40px;
+  font-family: cursive;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* ================= INPUTS ================= */
+input {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+input:focus {
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* ================= PASSWORD ================= */
+.password-box {
+  position: relative;
+}
+
+#togglePassword {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* ================= BUTTON ================= */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(
+    135deg,
+    #2ed573,
+    #1eae60
+  );
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* ================= TEXT ================= */
+.signup {
+  color: white;
+  margin-top: 15px;
+}
+
+.signup a {
+  color: white;
+}

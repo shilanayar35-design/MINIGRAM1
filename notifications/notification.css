@@ -1,0 +1,340 @@
+/* ===== ROOT (SAFE GLOBAL) ===== */
+:root{
+  --bg:#000;
+  --surface:#0c0c0c;
+  --surface2:#151515;
+  --text:#ffffff;
+  --muted:#9a9a9a;
+  --divider:rgba(255,255,255,0.06);
+  --white-soft:#f5f5f5;
+  --white-dim:#d0d0d0;
+}
+
+/* ================= PAGE ================= */
+
+.notificationsPage{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ================= RESET ================= */
+
+.notificationsPage *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* ================= CONTAINER ================= */
+
+.notificationsPage .container{
+  max-width:500px;
+  margin:auto;
+  min-height:100vh;
+  padding-bottom:calc(90px + env(safe-area-inset-bottom));
+}
+
+/* ================= HEADER ================= */
+
+.notificationsPage .header{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-start; /*  FIX */
+
+  gap:8px; /*  spacing fix */
+
+  padding:14px 16px;
+
+  background:rgba(0,0,0,0.96);
+  backdrop-filter:blur(26px);
+
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 4px 14px rgba(0,0,0,0.7);
+}
+
+/* ================= BACK BUTTON (FINAL ) ================= */
+
+.notificationsPage .backBtn{
+  width:36px;
+  height:36px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:10px;
+  border:none;
+
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+
+  font-size:20px;
+
+  cursor:pointer;
+  transition:.2s ease;
+
+  position:relative;
+  z-index:10;
+}
+
+.notificationsPage .backBtn:hover{
+  background:rgba(255,255,255,0.12);
+}
+
+.notificationsPage .backBtn:active{
+  transform:scale(.88);
+  background:rgba(255,255,255,0.2);
+}
+
+/*  OLD BACK REMOVE */
+.notificationsPage .back{
+  display:none;
+}
+
+/* TITLE */
+.notificationsPage .header h2{
+  font-size:18px;
+  font-weight:700;
+}
+
+/* ================= SECTION ================= */
+
+.notificationsPage .section{
+  margin:8px 12px 0;
+  padding:14px 16px;
+
+  border-radius:16px 16px 0 0;
+
+  background:var(--surface);
+  border:1px solid var(--divider);
+  border-bottom:none;
+
+  display:flex;
+  align-items:center;
+
+  margin-bottom:-1px;
+}
+
+/* ================= REQUEST ================= */
+
+.notificationsPage .request-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.notificationsPage .avatar-wrapper{
+  position:relative;
+}
+
+.notificationsPage .avatar-wrapper img{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.notificationsPage .badge{
+  position:absolute;
+  top:-3px;
+  right:-3px;
+
+  background:var(--white-soft);
+  color:#000;
+
+  font-size:9px;
+  padding:2px 6px;
+  border-radius:999px;
+  font-weight:600;
+}
+
+/* ================= TEXT ================= */
+
+.notificationsPage .req-text h4{
+  font-size:15px;
+  font-weight:700;
+}
+
+.notificationsPage .req-text p{
+  font-size:12px;
+  color:#8a8a8a;
+  margin-top:3px;
+}
+
+/* ================= TITLE ================= */
+
+.notificationsPage .title{
+  padding:10px 16px 6px;
+  font-size:11px;
+  color:#777;
+  font-weight:600;
+  letter-spacing:1px;
+}
+
+/* ================= LIST ================= */
+
+.notificationsPage #notifications{
+  margin:0 12px;
+
+  border-radius:0 0 16px 16px;
+
+  background:var(--surface);
+  border:1px solid var(--divider);
+  border-top:none;
+
+  overflow:hidden;
+}
+
+/* ================= ITEM ================= */
+
+.notificationsPage .item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:12px;
+  padding:14px 16px;
+
+  border-bottom:1px solid rgba(255,255,255,0.05);
+
+  transition:.2s ease;
+}
+
+.notificationsPage .item:last-child{
+  border-bottom:none;
+}
+
+.notificationsPage .item:active{
+  background:var(--surface2);
+  transform:scale(.97);
+}
+
+/* ================= LEFT ================= */
+
+.notificationsPage .left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:1;
+  min-width:0;
+}
+
+/* ================= AVATAR ================= */
+
+.notificationsPage .left img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  object-fit:cover;
+
+  flex-shrink:0;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* ================= TEXT ================= */
+
+.notificationsPage .text-wrap{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+
+.notificationsPage .text{
+  font-size:14px;
+  color:#cfcfcf;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.notificationsPage .text b{
+  color:#fff;
+}
+
+.notificationsPage .time{
+  font-size:11px;
+  color:#7a7a7a;
+  margin-top:3px;
+}
+
+/* ================= ACTIONS ================= */
+
+.notificationsPage .actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* ================= BUTTON ================= */
+
+.notificationsPage .btn{
+  height:32px;
+  padding:0 14px;
+
+  border-radius:8px;
+
+  font-size:12.5px;
+  font-weight:600;
+
+  display:flex;
+  align-items:center;
+
+  background:rgba(255,255,255,0.06);
+  color:var(--white-dim);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  transition:.2s ease;
+}
+
+.notificationsPage .btn:active{
+  transform:scale(.92);
+}
+
+/* PRIMARY */
+
+.notificationsPage .confirm,
+.notificationsPage .follow{
+  background:#fff;
+  color:#000;
+  border:none;
+}
+
+/* FOLLOWING */
+
+.notificationsPage .btn.following{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+}
+
+/* DELETE */
+
+.notificationsPage .delete{
+  background:transparent;
+  color:#888;
+}

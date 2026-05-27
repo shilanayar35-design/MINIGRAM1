@@ -1,0 +1,58 @@
+.reelUser {
+  position: absolute;
+  bottom: 105px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reelUser img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.8px solid #fff;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+.reelUserName {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.instaBtn {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  transition: 0.2s;
+}
+
+.instaBtn:active {
+  transform: scale(0.9);
+}
+
+.reelCaption {
+  position: absolute;
+  bottom: 80px;
+  left: 16px;
+  right: 95px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.moreBtn {
+  color: #aaa;
+}

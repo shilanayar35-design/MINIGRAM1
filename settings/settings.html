@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+
+<div class="settingsPage">
+
+  <!--  HEADER -->
+  <div class="settingsHeader">
+
+    <!--  FIXED BACK BUTTON -->
+    <button class="backBtn" onclick="settingsGoBack()">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M15 6L9 12L15 18"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <span class="title">Settings and activity</span>
+
+  </div>
+
+  <!-- ================= SECTION ================= -->
+  <div class="section">
+    <div class="sectionTitle">Your account</div>
+
+    <div class="item" onclick="openPage('accounts')">
+      <span>Accounts Center</span>
+
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================= SECTION ================= -->
+  <div class="section">
+    <div class="sectionTitle">How you use MiniGram</div>
+
+    <div class="item" onclick="openPage('saved')">
+      <span>Saved</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('archive')">
+      <span>Archive</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('activity')">
+      <span>Your activity</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('notifications')">
+      <span>Notifications</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================= SECTION ================= -->
+  <div class="section">
+    <div class="sectionTitle">Who can see your content</div>
+
+    <div class="item">
+      <span>Account privacy</span>
+      <span class="value">Private</span>
+    </div>
+
+    <div class="item">
+      <span>Close friends</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item">
+      <span>Blocked</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item">
+      <span>Hide story</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+  </div>
+
+  <!--  LOGOUT -->
+  <div class="section dangerSection">
+    <div class="item logout" onclick="logout()">
+      <span>Log out</span>
+    </div>
+  </div>
+
+</div>
+
+<!--  REMOVE THIS (VERY IMPORTANT for SPA) -->
+<!-- <script src="settings.js"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* ===== GPU / BROWSER SAFE FIX ===== */
+
+.reelItem,
+.reelVideo,
+.reelCaption,
+.reelItem::before,
+.reelItem::after {
+  backface-visibility: hidden;
+  pointer-events: none;
+}

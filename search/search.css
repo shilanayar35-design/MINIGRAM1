@@ -1,0 +1,688 @@
+/* ========================================= */
+/* 🌐 GLOBAL FIX */
+/* ========================================= */
+
+html,
+body{
+
+  margin:0;
+  padding:0;
+
+  background:#0b0b0b;
+
+  scroll-behavior:smooth;
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
+
+}
+
+/* ========================================= */
+/* 🌍 PAGE */
+/* ========================================= */
+
+.searchPage{
+
+  width:100%;
+
+  padding:12px;
+
+  box-sizing:border-box;
+
+  background:#0b0b0b;
+
+  padding-bottom:90px;
+
+  display:block;
+
+}
+
+/* ========================================= */
+/* 🔍 SEARCH BAR */
+/* ========================================= */
+
+.searchBar{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:50;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  width:100%;
+
+  padding:12px;
+
+  box-sizing:border-box;
+
+  border-radius:14px;
+
+  background:linear-gradient(
+
+    to bottom,
+
+    rgba(30,30,30,0.95),
+
+    rgba(30,30,30,0.75)
+
+  );
+
+  border:1px solid
+    rgba(255,255,255,0.05);
+
+  box-shadow:
+
+    inset 0 1px 0
+      rgba(255,255,255,0.03),
+
+    0 4px 12px
+      rgba(0,0,0,0.5);
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+
+}
+
+/* ========================================= */
+/* 🔥 SEARCH BAR SCROLL FX */
+/* ========================================= */
+
+.searchBar.scrolled{
+
+  transform:scale(0.96);
+
+  opacity:0.92;
+
+}
+
+.searchBar span{
+
+  color:#aaa;
+
+  font-size:22px;
+
+}
+
+.searchBar input{
+
+  flex:1;
+
+  border:none;
+  outline:none;
+
+  background:transparent;
+
+  color:#fff;
+
+  font-size:16px;
+
+}
+
+/* ========================================= */
+/* 👤 SEARCH RESULTS */
+/* ========================================= */
+
+.searchResults{
+
+  margin-top:15px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:10px;
+
+}
+
+.searchUser{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:10px;
+
+  border-radius:12px;
+
+  cursor:pointer;
+
+  background:#111;
+
+  transition:0.2s;
+
+  border:1px solid
+    rgba(255,255,255,0.04);
+
+}
+
+.searchUser:hover{
+
+  background:#1a1a1a;
+
+}
+
+.searchUser:active{
+
+  transform:scale(0.97);
+
+}
+
+.searchUser img{
+
+  width:45px;
+  height:45px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+}
+
+.searchUser span{
+
+  color:#fff;
+
+  font-size:15px;
+
+  font-weight:500;
+
+}
+
+/* ========================================= */
+/* 🔥 EXPLORE GRID */
+/* ========================================= */
+
+.exploreGrid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap:3px;
+
+  padding:0 4px;
+
+  margin-top:14px;
+
+  width:100%;
+
+  box-sizing:border-box;
+
+  opacity:1;
+
+  visibility:visible;
+
+}
+
+/* ========================================= */
+/* 📦 GRID ITEM */
+/* ========================================= */
+
+.gridItem{
+
+  position:relative;
+
+  width:100%;
+
+  min-height:120px;
+
+  height:120px;
+
+  overflow:hidden;
+
+  background:#111;
+
+  border-radius:12px;
+
+  box-shadow:
+    0 4px 20px
+    rgba(0,0,0,0.4);
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+
+}
+
+/* ========================================= */
+/* 🔥 BIG TILE */
+/* ========================================= */
+
+.gridItem.big{
+
+  grid-column:span 2;
+
+  grid-row:span 2;
+
+  min-height:243px;
+
+  height:243px;
+
+}
+
+/* ========================================= */
+/* 🖼️ IMAGE */
+/* ========================================= */
+
+.gridItem img{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  border-radius:inherit;
+
+}
+
+/* ========================================= */
+/* 🔥 TAP FEEL */
+/* ========================================= */
+
+.gridItem:active{
+
+  transform:scale(0.95);
+
+  filter:brightness(0.8);
+
+}
+
+.gridItem:active img{
+
+  transform:scale(1.08);
+
+  transition:transform 0.2s ease;
+
+}
+
+/* ========================================= */
+/* 🎬 VIDEO ICON */
+/* ========================================= */
+
+.gridItem::after{
+
+  content:"▶";
+
+  position:absolute;
+
+  top:6px;
+  right:6px;
+
+  font-size:14px;
+
+  color:#fff;
+
+  opacity:0.85;
+
+  z-index:2;
+
+}
+
+/* ========================================= */
+/* ⚡ SKELETON */
+/* ========================================= */
+
+.skeleton{
+
+  background:linear-gradient(
+
+    90deg,
+
+    #111 25%,
+
+    #1a1a1a 50%,
+
+    #111 75%
+
+  );
+
+  background-size:200% 100%;
+
+  animation:shimmer 1.2s infinite;
+
+}
+
+@keyframes shimmer{
+
+  0%{
+
+    background-position:200% 0;
+
+  }
+
+  100%{
+
+    background-position:-200% 0;
+
+  }
+
+}
+
+/* ========================================= */
+/* 🔍 SEARCH MODE */
+/* ========================================= */
+
+.searchPage.searching
+.exploreGrid{
+
+  display:none;
+
+}
+
+/* ========================================= */
+/* 🌊 FADE ANIMATION */
+/* ========================================= */
+
+@keyframes fadeIn{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+/* ========================================= */
+/* 🌌 OVERLAY */
+/* ========================================= */
+
+.postViewer{
+
+  position:fixed;
+
+  inset:0;
+
+  background:radial-gradient(
+
+    circle at center,
+
+    rgba(0,0,0,0.65),
+
+    rgba(0,0,0,0.98)
+
+  );
+
+  backdrop-filter:blur(20px);
+
+  display:none;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:9999;
+
+  opacity:0;
+
+  transition:opacity 0.35s ease;
+
+}
+
+.postViewer.active{
+
+  display:flex;
+
+  opacity:1;
+
+}
+
+/* ========================================= */
+/* 📦 POST CONTAINER */
+/* ========================================= */
+
+.postContainer{
+
+  width:92%;
+
+  max-width:420px;
+
+  background:
+    rgba(18,18,18,0.95);
+
+  backdrop-filter:blur(30px);
+
+  border-radius:26px;
+
+  overflow:hidden;
+
+  transform:
+    translateY(50px)
+    scale(0.94);
+
+  box-shadow:
+
+    0 25px 70px
+      rgba(0,0,0,0.9),
+
+    0 0 0 1px
+      rgba(255,255,255,0.05),
+
+    inset 0 1px 0
+      rgba(255,255,255,0.06);
+
+  transition:
+    all 0.4s
+    cubic-bezier(.2,.8,.2,1);
+
+}
+
+.postViewer.active
+.postContainer{
+
+  transform:
+    translateY(0)
+    scale(1);
+
+}
+
+/* ========================================= */
+/* 📌 HEADER */
+/* ========================================= */
+
+.postHeader{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:10px 12px;
+
+  min-height:52px;
+
+  color:#fff;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  border-bottom:1px solid
+    rgba(255,255,255,0.06);
+
+  gap:10px;
+
+}
+
+/* ========================================= */
+/* 🖼️ POST IMAGE */
+/* ========================================= */
+
+.postContainer img{
+
+  width:100%;
+
+  height:auto;
+
+  display:block;
+
+}
+
+/* ========================================= */
+/* ⚡ ACTION BAR */
+/* ========================================= */
+
+.postActions{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:12px 14px;
+
+}
+
+.leftActions{
+
+  display:flex;
+
+  gap:10px;
+
+}
+
+/* ========================================= */
+/* 🔘 GLASS BUTTON */
+/* ========================================= */
+
+.glassBtn{
+
+  width:38px;
+  height:38px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(10px);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:0.25s ease;
+
+}
+
+.glassBtn:active{
+
+  transform:scale(0.9);
+
+  background:
+    rgba(255,255,255,0.15);
+
+}
+
+/* ========================================= */
+/* 📝 CAPTION */
+/* ========================================= */
+
+.postCaption{
+
+  padding:0 14px 16px;
+
+  color:#fff;
+
+  font-size:14px;
+
+  line-height:1.4;
+
+}
+
+.postCaption .username{
+
+  font-weight:600;
+
+  margin-right:6px;
+
+}
+
+/* ========================================= */
+/* ❌ CLOSE BUTTON */
+/* ========================================= */
+
+.closeBtn{
+
+  width:34px;
+  height:34px;
+
+  min-width:34px;
+  min-height:34px;
+
+  flex-shrink:0;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:#fff;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  transition:0.25s;
+
+}
+
+.closeBtn:hover{
+
+  background:
+    rgba(255,255,255,0.18);
+
+  transform:scale(1.1);
+
+}
+
+.closeBtn:active{
+
+  transform:scale(0.9);
+
+}

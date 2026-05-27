@@ -1,0 +1,100 @@
+<div class="accountsPage">
+
+  <!-- ================= HEADER ================= -->
+  <div class="accountsHeader">
+
+    <button class="closeBtn" onclick="accountsGoBack()">
+  <svg viewBox="0 0 24 24" width="24" height="24">
+    <path d="M6 6L18 18M18 6L6 18"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"/>
+  </svg>
+</button>
+
+    <!-- 🔥 BRAND -->
+    <span class="brand">Nexora</span>
+
+  </div>
+
+  <!-- ================= TOP ================= -->
+  <div class="accountsTop">
+    <h1>Accounts Center</h1>
+    <p>
+      Manage your connected experiences and account settings across Nexora apps.
+    </p>
+  </div>
+
+  <!-- ================= PROFILE CARD ================= -->
+  <div class="card profileCard" onclick="openPage('profiles')">
+
+    <div class="profileLeft">
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/100?img=5">
+        <img src="https://i.pravatar.cc/100?img=6">
+      </div>
+
+      <div>
+        <div class="title">Profiles & personal details</div>
+        <div class="sub">3 profiles</div>
+      </div>
+
+    </div>
+
+    <svg class="arrowIcon" viewBox="0 0 24 24">
+      <path d="M9 6L15 12L9 18"/>
+    </svg>
+
+  </div>
+
+  <!-- ================= MAIN OPTIONS ================= -->
+  <div class="card">
+
+    <div class="item" onclick="openPage('security')">
+      <span>Password & security</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('connected')">
+      <span>Connected experiences</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('permissions')">
+      <span>Your information & permissions</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+    <div class="item" onclick="openPage('ads')">
+      <span>Ad preferences</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- ================= MANAGE ================= -->
+  <div class="card">
+
+    <div class="item" onclick="openPage('manage_accounts')">
+      <span>Manage accounts</span>
+      <svg class="arrowIcon" viewBox="0 0 24 24">
+        <path d="M9 6L15 12L9 18"/>
+      </svg>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="accounts.js" defer></script>
+</body>
+</html>

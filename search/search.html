@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+   
+  <!-- FIRST PAINT FIX -->
+  <meta name="theme-color" content="#0b0b0b">
+
+  <!-- PRE-PAINT -->
+  <script>
+    document.documentElement.style.background = "#0b0b0b";
+    document.body.style.background = "#0b0b0b";
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="search.css">
+</head>
+
+<body style="background:#0b0b0b; margin:0;">
+
+  <div class="searchPage">
+
+    <!-- SEARCH BAR -->
+    <div class="searchBar">
+      <span class="material-symbols-outlined">search</span>
+
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search users..."
+        oninput="searchUsers()"
+      >
+    </div>
+
+    <!-- SEARCH RESULTS -->
+    <div id="searchResults" class="searchResults"></div>
+
+    <!-- EXPLORE GRID -->
+    <div class="exploreGrid" id="exploreGrid"></div>
+
+  </div>
+
+  <!--  POST VIEW OVERLAY -->
+  <div id="postViewer" class="postViewer">
+
+    <div class="postContainer">
+
+      <!-- HEADER -->
+      <div class="postHeader">
+        <span id="postUsername">username</span>
+        <button class="closeBtn" onclick="closePost()"></button>
+      </div>
+
+      <!-- IMAGE -->
+      <img id="postImage" src="">
+
+      <!--  ACTION BAR -->
+      <div class="postActions">
+
+        <div class="leftActions">
+          <button class="glassBtn like"></button>
+          <button class="glassBtn comment"></button>
+          <button class="glassBtn share"></button>
+        </div>
+
+        <button class="glassBtn save"></button>
+
+      </div>
+
+      <!--  CAPTION -->
+      <div class="postCaption">
+        <span class="username" id="captionUsername">user</span>
+        <span id="postCaptionText">Beautiful view </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

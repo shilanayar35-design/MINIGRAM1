@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: linear-gradient(#70c5ce, #d0f5ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+#gameArea {
+  position: relative;
+  width: 320px;
+  height: 520px;
+  background: linear-gradient(#70c5ce, #bff2ff);
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid #000;
+  margin-top: 20px;
+}
+
+#bird {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: gold;
+  border-radius: 50%;
+  left: 60px;
+  top: 200px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.pipe {
+  position: absolute;
+  width: 52px;
+  background: #1faa00;
+  border: 2px solid #0b5e00;
+}
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#startBtn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  font-size: 16px;
+}

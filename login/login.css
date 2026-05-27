@@ -1,0 +1,392 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* SCROLL FIX */
+
+html,body{
+height:100%;
+width:100%;
+overflow:hidden;
+}
+
+/* BODY */
+
+body{
+
+height:100vh;
+width:100vw;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+overflow:hidden;
+
+/* Gradient */
+
+background:linear-gradient(
+270deg,
+#7bed9f,
+#2ed573,
+#1eae60,
+#0b8f4d,
+#046b3b
+);
+
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+
+perspective:1200px;
+}
+
+/* BACKGROUND WAVE */
+
+body::before{
+
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+
+width:200%;
+height:200%;
+
+background:radial-gradient(
+circle at 50% 50%,
+rgba(255,255,255,0.08),
+transparent 60%
+);
+
+animation:waveMove 10s linear infinite;
+
+}
+
+/* RIPPLE OVERLAY LAYER */
+
+.ripple-layer{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+overflow:hidden;
+
+z-index:1;
+
+}
+
+/* WATER RIPPLE */
+
+.ripple{
+
+position:absolute;
+
+width:20px;
+height:20px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,0.6);
+
+transform:translate(-50%,-50%) scale(0);
+
+animation:rippleEffect 1s ease-out;
+
+pointer-events:none;
+
+}
+
+/* RIPPLE ANIMATION */
+
+@keyframes rippleEffect{
+
+0%{
+transform:translate(-50%,-50%) scale(0);
+opacity:0.8;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(15);
+opacity:0;
+}
+
+}
+
+/* GRADIENT ANIMATION */
+
+@keyframes gradientMove{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* WAVE ANIMATION */
+
+@keyframes waveMove{
+
+0%{
+transform:rotate(0deg) scale(1);
+}
+
+50%{
+transform:rotate(180deg) scale(1.1);
+}
+
+100%{
+transform:rotate(360deg) scale(1);
+}
+
+}
+
+/* FLOATING CARD */
+
+@keyframes floatCard{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
+
+}
+
+/* LOGIN CARD */
+
+.login-container{
+
+width:340px;
+padding:30px 26px;
+
+text-align:center;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+
+border-radius:16px;
+
+box-shadow:
+0 15px 45px rgba(0,0,0,0.35),
+0 0 40px rgba(0,0,0,0.15) inset;
+
+position:relative;
+
+z-index:2;
+
+animation:floatCard 5s ease-in-out infinite;
+
+transition:transform 0.4s ease, box-shadow 0.4s ease;
+
+}
+
+/* 3D HOVER */
+
+.login-container:hover{
+
+transform:
+rotateX(6deg)
+rotateY(-6deg)
+scale(1.03);
+
+box-shadow:0 25px 60px rgba(0,0,0,0.45);
+
+}
+
+/* LOGO */
+
+.logo{
+
+font-size:40px;
+font-family:cursive;
+
+margin-bottom:25px;
+
+color:white;
+
+letter-spacing:1px;
+
+}
+
+/* INPUT */
+
+input{
+
+width:100%;
+
+padding:13px 15px;
+
+margin:8px 0;
+
+border-radius:6px;
+
+border:none;
+
+background:white;
+
+font-size:14px;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.15);
+
+transition:0.25s;
+
+}
+
+input::placeholder{
+color:#777;
+}
+
+input:focus{
+
+outline:none;
+
+transform:scale(1.02);
+
+box-shadow:0 6px 20px rgba(0,0,0,0.25);
+
+}
+
+/* PASSWORD BOX */
+
+.password-box{
+position:relative;
+}
+
+/* EYE ICON */
+
+#togglePassword{
+
+position:absolute;
+
+right:12px;
+top:50%;
+
+transform:translateY(-50%);
+
+cursor:pointer;
+
+color:#555;
+
+font-size:18px;
+
+transition:0.25s;
+
+}
+
+#togglePassword:hover{
+
+transform:translateY(-50%) scale(1.15);
+
+color:black;
+
+}
+
+/* LOGIN BUTTON */
+
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+border-radius:6px;
+
+background:linear-gradient(
+135deg,
+#2ed573,
+#1eae60
+);
+
+color:white;
+
+font-weight:bold;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 12px 28px rgba(0,0,0,0.3);
+
+}
+
+/* TEXT */
+
+.forgot{
+
+font-size:12px;
+
+margin-top:15px;
+
+color:white;
+
+}
+
+/* OR */
+
+.or{
+
+display:flex;
+
+align-items:center;
+
+margin:20px 0;
+
+color:white;
+
+}
+
+.or span{
+
+flex:1;
+
+height:1px;
+
+background:rgba(255,255,255,0.4);
+
+}
+
+.or p{
+
+margin:0 10px;
+
+font-size:12px;
+
+}
+
+/* SIGNUP */
+
+.signup{
+
+font-size:14px;
+
+color:white;
+
+}
+
+.signup b{
+
+cursor:pointer;
+
+text-decoration:underline;
+
+}

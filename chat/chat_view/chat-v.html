@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat View</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="chat-v.css">
+</head>
+
+<body>
+
+<div class="chatContainer">
+
+  <!-- ================================
+       HEADER
+  ================================= -->
+  <div class="chatHeader">
+
+    <!-- BACK -->
+    <div class="backBtn rippleBtn" onclick="FUNCTIONS.goBackChat()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- USER INFO -->
+    <div class="userInfo">
+      <div class="avatarWrapper">
+        <img class="chatUserAvatar" src="" alt="user">
+      </div>
+
+      <div class="userText">
+        <div class="chatUserName">user</div>
+        <div class="userStatus">online</div>
+      </div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+
+      <!-- 🔥 CALL (UPDATED WITH ID) -->
+      <div class="iconBtn rippleBtn" id="callBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M22 16.92V20a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h3.09a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.6a2 2 0 0 1-.45 2.11L9.03 10.97a16 16 0 0 0 6 6l1.54-1.2a2 2 0 0 1 2.11-.45c.83.27 1.7.47 2.6.59A2 2 0 0 1 22 16.92z"
+            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- MENU -->
+      <div class="iconBtn rippleBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <circle cx="12" cy="5" r="2"/>
+          <circle cx="12" cy="12" r="2"/>
+          <circle cx="12" cy="19" r="2"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================
+       MESSAGES
+  ================================= -->
+  <div class="chatMessages" id="chatMessages"></div>
+
+  <!-- ================================
+       INPUT
+  ================================= -->
+  <div class="chatInputBox">
+    <div class="chatInputWrapper">
+
+      <!-- ADD -->
+      <div class="iconBtn rippleBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- INPUT -->
+      <textarea
+        class="chatInput"
+        rows="1"
+        placeholder="Message..."
+        autocomplete="off"
+        oninput="FUNCTIONS.handleInput(this)"
+        onkeydown="handleEnter(event)"
+      ></textarea>
+
+      <!-- VOICE -->
+      <div class="iconBtn voiceBtn rippleBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"
+            stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M19 11a7 7 0 0 1-14 0M12 18v3M8 21h8"
+            stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- SEND -->
+      <button class="sendBtn rippleBtn" onclick="FUNCTIONS.sendMessage()">
+        <svg width="18" height="18" viewBox="0 0 24 24">
+          <path d="M22 2L11 13" stroke="black" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="black"/>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ================================
+     MESSAGE MENU
+================================= -->
+<div id="msgMenu" class="msgMenu">
+  <div class="menuItem rippleBtn" id="copyBtn">Copy</div>
+  <div class="menuItem rippleBtn" id="selectBtn">Select All</div>
+</div>
+
+<script src="chat-v.js"></script>
+
+</body>
+</html>

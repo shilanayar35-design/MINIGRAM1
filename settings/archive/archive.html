@@ -1,0 +1,73 @@
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <!-- Back Button SVG -->
+    <span class="back">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--text)" viewBox="0 0 24 24">
+        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </span>
+
+    <h2>Archive</h2>
+
+    <!-- Menu Button SVG -->
+    <span class="menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--text)" viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </span>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <span class="tab active" data-tab="stories">Stories</span>
+    <span class="tab" data-tab="posts">Posts</span>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- STORIES -->
+    <div class="tab-content active" id="stories">
+      <div class="archive-list">
+        <!-- Dynamic stories will be appended here by initArchive -->
+      </div>
+      <div class="empty">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="var(--muted)" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10
+                     10-4.48 10-10S17.52 2 12 2zm0 18
+                     c-4.41 0-8-3.59-8-8s3.59-8
+                     8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+          </svg>
+        </div>
+        <h3>Archived Stories</h3>
+        <p>
+          Stories are visible to your followers for 24 hours.
+          After that, they'll appear here, in your archive.
+          Only you can see what's in your archive.
+        </p>
+      </div>
+    </div>
+
+    <!-- POSTS -->
+    <div class="tab-content" id="posts">
+      <div class="archive-list">
+        <!-- Dynamic posts will be appended here by initArchive -->
+      </div>
+      <div class="empty">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="var(--muted)" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14
+                     c0 1.1.9 2 2 2h14c1.1 0 2-.9
+                     2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-8-9h2v6h-2zm0-4h2v2h-2z"/>
+          </svg>
+        </div>
+        <h3>No Archived Posts</h3>
+      </div>
+    </div>
+
+  </div>
+
+</div>

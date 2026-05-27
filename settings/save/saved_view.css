@@ -1,0 +1,152 @@
+/* ================= PAGE ================= */
+.savedViewPage {
+  height: 100dvh;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-y: auto;
+}
+
+
+/* ================= HEADER ================= */
+.savedViewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* TITLE */
+.savedViewHeader h2 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+
+/* ================= BACK BUTTON ================= */
+.backBtn {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.backBtn svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  stroke-width: 2.5;
+}
+
+.backBtn:active {
+  background: rgba(255,255,255,0.1);
+  transform: scale(0.9);
+}
+
+
+/* ================= GRID ================= */
+.savedViewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  padding: 4px;
+
+  padding-bottom: 90px;
+}
+
+
+/* ================= ITEM ================= */
+.savedViewItem {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+
+  border-radius: 10px;
+
+  /* 🔥 smooth depth */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* 🔥 BIG CARD (HERO STYLE) */
+.savedViewItem.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+
+/* ================= IMAGE ================= */
+.savedViewItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  opacity: 0;
+  animation: fadeIn 0.35s ease forwards;
+}
+
+/* TAP EFFECT */
+.savedViewItem:active img {
+  transform: scale(0.9);
+  opacity: 0.85;
+}
+
+
+/* ================= FADE ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ================= EMPTY ================= */
+.savedViewGrid p {
+  grid-column: span 3;
+  text-align: center;
+  padding: 60px 20px;
+
+  color: #8e8e93;
+  font-size: 14px;
+}
+
+
+/* ================= SCROLL ================= */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ================= PERFORMANCE ================= */
+.savedViewItem img,
+.backBtn {
+  will-change: transform;
+}

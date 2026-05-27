@@ -1,0 +1,12 @@
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --muted: rgba(255,255,255,0.65);
+  --accent: #ff3040;
+}
+
+/* Optional font stacks */
+body, .reelsContainer {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}

@@ -1,0 +1,339 @@
+/* ============================= */
+/* 💬 ROOT SHEET (ULTRA PRO MAX) */
+/* ============================= */
+#commentSheet{
+  position:fixed;
+  inset:0;
+
+  display:none;
+  justify-content:flex-end;
+  align-items:flex-end;
+
+  background:rgba(0,0,0,0.58);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  z-index:9999;
+
+  overflow:hidden;
+
+  touch-action:none;
+  overscroll-behavior:contain;
+
+  transform:translateZ(0);
+  will-change: opacity;
+}
+
+#commentSheet.active{
+  display:flex;
+}
+
+/* ============================= */
+/* BACKDROP (SOFT DEPTH LAYER) */
+/* ============================= */
+#commentSheet::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+}
+
+/* ============================= */
+/* GLOBAL SAFE */
+/* ============================= */
+#commentSheet *{
+  box-sizing:border-box;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ============================= */
+/* 📦 SHEET PANEL (REAL GLASS PREMIUM) */
+/* ============================= */
+#commentSheet .sheetContent{
+  width:100%;
+  max-width:520px;
+
+  height:86%;
+  max-height:92%;
+  min-height:420px;
+
+  background:linear-gradient(
+    180deg,
+    rgba(20,20,22,0.92),
+    rgba(10,10,12,0.98)
+  );
+
+  border-radius:28px 28px 0 0;
+
+  display:flex;
+  flex-direction:column;
+
+  box-shadow:
+    0 -30px 100px rgba(0,0,0,0.95),
+    0 0 0 1px rgba(255,255,255,0.04);
+
+  position:relative;
+  z-index:2;
+
+  overflow:hidden;
+
+  transform:translateZ(0);
+  will-change: transform, opacity;
+
+  animation:sheetUp 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================= */
+/* ANIMATION (SMOOTH FLOAT) */
+/* ============================= */
+@keyframes sheetUp{
+  from{
+    transform:translate3d(0,55px,0);
+    opacity:0;
+  }
+  to{
+    transform:translate3d(0,0,0);
+    opacity:1;
+  }
+}
+
+/* ============================= */
+/* 🧾 HEADER (GLASS BAR) */
+/* ============================= */
+.sheetHeader{
+  flex-shrink:0;
+
+  text-align:center;
+  padding:10px 10px 12px;
+
+  background:rgba(20,20,22,0.55);
+  backdrop-filter: blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,0.05);
+
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+
+.dragBar{
+  width:44px;
+  height:4px;
+  background:rgba(255,255,255,0.22);
+  border-radius:999px;
+  margin:6px auto 10px;
+}
+
+.sheetHeader h3{
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+}
+
+/* ============================= */
+/* 💬 COMMENT LIST (GPU SCROLL) */
+/* ============================= */
+#commentList{
+  flex:1;
+  overflow-y:auto;
+  padding:14px;
+
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+
+  transform:translateZ(0);
+}
+
+/* empty */
+.emptyState{
+  text-align:center;
+  color:#777;
+  margin-top:60px;
+  font-size:13px;
+}
+
+/* ============================= */
+/* 💬 COMMENT ROW (CLEAN INSTAGRAM FLOW) */
+/* ============================= */
+.commentRow{
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  align-items:flex-start;
+}
+
+.cAvatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 6px 18px rgba(0,0,0,0.45);
+}
+
+.cContent{
+  flex:1;
+}
+
+.cTop{
+  font-size:13px;
+  color:#bdbdbd;
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+
+.cTop b{
+  color:#fff;
+}
+
+.time{
+  font-size:11px;
+  color:#6f6f6f;
+}
+
+.cText{
+  font-size:14px;
+  margin-top:4px;
+  line-height:1.45;
+  color:#f2f2f2;
+  word-break:break-word;
+}
+
+.cActions{
+  font-size:12px;
+  color:#888;
+  margin-top:5px;
+}
+
+/* ============================= */
+/* ❤️ LIKE BUTTON (FAST GPU ANIMATION) */
+/* ============================= */
+.cLike{
+  width:42px;
+  height:42px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-left:auto;
+
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;
+
+  cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transform:translateZ(0);
+}
+
+.like-icon{
+  width:20px;
+  height:20px;
+
+  stroke:#777;
+  fill:none;
+
+  transition:transform 0.15s ease, stroke 0.15s ease, fill 0.15s ease;
+}
+
+.like.active .like-icon{
+  stroke:#ff3040;
+  fill:#ff3040;
+  transform:scale(1.12);
+}
+
+/* ============================= */
+/* 🔥 EMOJI BAR (GLASS STRIP) */
+/* ============================= */
+.emojiBar{
+  flex-shrink:0;
+
+  padding:10px 12px;
+
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+
+  font-size:20px;
+
+  background:rgba(15,15,16,0.65);
+  backdrop-filter: blur(16px);
+
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.emojiBar::-webkit-scrollbar{
+  display:none;
+}
+
+/* ============================= */
+/* ✍️ INPUT BAR (FLOAT GLASS) */
+/* ============================= */
+.inputBox{
+  flex-shrink:0;
+
+  display:flex;
+  align-items:center;
+  padding:10px 12px;
+
+  gap:10px;
+
+  background:rgba(15,15,16,0.65);
+  backdrop-filter: blur(16px);
+
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.inputBox input{
+  flex:1;
+
+  background:rgba(255,255,255,0.06);
+  border:none;
+  outline:none;
+
+  color:#fff;
+  font-size:14px;
+
+  padding:11px 14px;
+  border-radius:999px;
+
+  transition:0.2s ease;
+}
+
+.inputBox input:focus{
+  background:rgba(255,255,255,0.1);
+}
+
+.inputBox button{
+  background:none;
+  border:none;
+
+  color:#0095f6;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* ============================= */
+/* 🚨 BODY LOCK (NO JITTER FINAL FIX) */
+/* ============================= */
+body.comment-open{
+  position:fixed;
+  width:100%;
+  overflow:hidden;
+  touch-action:none;
+}
+
+html, body{
+  height:100%;
+}
+
+/* safety */
+*{
+  -webkit-touch-callout:none;
+}
+
+input{
+  -webkit-user-select:text;
+}

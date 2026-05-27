@@ -1,0 +1,227 @@
+/* ================= PAGE ================= */
+.savedPage {
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-y: auto;
+}
+
+
+/* ================= HEADER ================= */
+.savedHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.savedHeader h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+
+/* ================= BACK BUTTON ================= */
+.backBtn {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.07);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.backBtn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.backBtn:active {
+  transform: scale(0.85);
+  background: rgba(255,255,255,0.18);
+}
+
+
+/* ================= COLLECTIONS ================= */
+.savedCollections {
+  display: flex;
+  gap: 12px;
+  padding: 12px 12px 6px;
+  overflow-x: auto;
+}
+
+.savedCollections::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ================= CARD ================= */
+.collectionCard {
+  min-width: 130px;
+  height: 130px;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  position: relative;
+  cursor: pointer;
+
+  background: #111;
+
+  /* 🔥 DEPTH + PREMIUM SHADOW */
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.8),
+    inset 0 1px rgba(255,255,255,0.05);
+
+  transition: all 0.25s ease;
+}
+
+/* IMAGE */
+.collectionCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+/* HOVER / PRESS */
+.collectionCard:active {
+  transform: scale(0.93);
+  opacity: 0.85;
+}
+
+.collectionCard:active img {
+  transform: scale(1.05);
+}
+
+/* ACTIVE SELECT */
+.collectionCard.active {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 10px 30px rgba(0,0,0,0.9);
+}
+
+
+/* ================= OVERLAY ================= */
+.collectionOverlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  background: rgba(0,0,0,0.55);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(8px);
+}
+
+.collectionOverlay .icon {
+  width: 16px;
+  height: 16px;
+  stroke: #fff;
+  fill: none;
+}
+
+
+/* ================= TITLE ================= */
+.collectionTitle {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  background: rgba(0,0,0,0.55);
+  padding: 4px 8px;
+  border-radius: 8px;
+
+  backdrop-filter: blur(6px);
+}
+
+
+/* ================= GRID ================= */
+.savedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+
+  margin-top: 8px;
+}
+
+/* ITEM */
+.savedItem {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: #111;
+}
+
+/* IMAGE */
+.savedItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: transform 0.25s ease, opacity 0.25s;
+}
+
+/* TAP EFFECT */
+.savedItem:active img {
+  transform: scale(0.92);
+  opacity: 0.85;
+}
+
+
+/* ================= EMPTY ================= */
+.savedEmpty {
+  text-align: center;
+  padding: 50px 20px;
+  color: #8e8e93;
+  font-size: 14px;
+}
+
+
+/* ================= SCROLL ================= */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ================= PERFORMANCE ================= */
+.collectionCard,
+.savedItem img,
+.backBtn {
+  will-change: transform;
+}

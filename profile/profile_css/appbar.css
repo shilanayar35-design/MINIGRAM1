@@ -1,0 +1,143 @@
+/* ========================================= */
+/*  PROFILE APPBAR (FAST + PREMIUM) */
+/* ========================================= */
+
+.profileAppbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 12px;
+
+  /*  FAST BG (NO BLUR) */
+  background: rgba(0,0,0,0.92);
+
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+
+  /*  LIGHT SHADOW (REDUCED) */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ===== LEFT SECTION ===== */
+.profileAppbar .left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.usernameTop {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* ===== SMALL BUTTON ===== */
+.profileAppbar .iconBtn.small {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+
+/*  LIVE DOT */
+.profileAppbar .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff3040;
+
+  /*  LIGHT GLOW */
+  box-shadow: 0 0 4px rgba(255,48,64,0.6);
+}
+
+
+/* ===== RIGHT SECTION ===== */
+.profileAppbar .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ===== ICON BUTTON (FAST VERSION) ===== */
+.profileAppbar .iconBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*  SIMPLE BG */
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  /*  REMOVE blur */
+  /* backdrop-filter: blur(10px); */
+
+  /*  LIGHT SHADOW */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+
+  color: rgba(255,255,255,0.95);
+
+  /*  FAST TRANSITION */
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+
+/* ===== HOVER (DESKTOP SAFE) ===== */
+@media (hover:hover) {
+  .profileAppbar .iconBtn:hover {
+    background: rgba(255,255,255,0.12);
+  }
+}
+
+
+/*  TAP FEEL (MOBILE OPTIMIZED) */
+.profileAppbar .iconBtn:active {
+  transform: scale(0.9);
+  background: rgba(255,255,255,0.18);
+}
+
+
+/* ===== ICON SIZE ===== */
+.profileAppbar .iconBtn svg {
+  width: 18px;
+  height: 18px;
+  opacity: 0.9;
+}
+
+
+/* ===== BOTTOM FADE (LIGHT) ===== */
+.profileAppbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 6px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3),
+    transparent
+  );
+
+  pointer-events: none;
+}

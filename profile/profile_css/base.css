@@ -1,0 +1,27 @@
+/* ===== ROOT SYSTEM ===== */
+:root {
+  --bg: #000;
+  --card: #000;
+  --border: #111;
+  --text: #fff;
+  --text-dim: #8e8e8e;
+  --text-soft: #d0d0d0;
+  --accent: #00ff88;
+  --shadow: rgba(0,0,0,0.8);
+}
+
+/* ===== BASE ===== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background-image: radial-gradient(circle at 50% -20%, rgba(255,255,255,0.03), transparent 60%);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}

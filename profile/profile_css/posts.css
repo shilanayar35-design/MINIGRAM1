@@ -1,0 +1,51 @@
+/* ========================================= */
+/* 🚀 VIRTUAL GRID (ULTRA PERFORMANCE) */
+/* ========================================= */
+
+/* ===== CONTAINER ===== */
+.posts {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+}
+
+/* ===== POST (RECYCLED ITEMS) ===== */
+.post {
+  position: absolute;   /* 🔥 CORE SYSTEM */
+  background: #111;
+  overflow: hidden;
+
+  border-radius: 6px;
+
+  /* ❌ REMOVE aspect-ratio (BUG FIX) */
+  /* aspect-ratio: 1/1; */
+
+  /* ✅ FALLBACK SIZE (JS overwrite karega) */
+  width: 100px;
+  height: 100px;
+
+  /* ❌ REMOVE HEAVY EFFECTS */
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* ===== IMAGE ===== */
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* ✅ GPU SAFE */
+  will-change: transform;
+}
+
+/* ===== SKELETON (LIGHT) ===== */
+.profileSkeleton {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+
+  background: #151515;
+}

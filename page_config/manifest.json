@@ -1,0 +1,22 @@
+{
+  "home": "0001",
+  "search": "0002",
+  "profile": "0003",
+  "reels": "0004",
+  "chat": "0005",
+  "notifications": "0006",
+
+  "stories": "0007",
+  "story_view": "0008",
+
+  "chat_view": "0009",
+  "call": "0010",
+
+  "settings": "0011",
+  "accounts": "0012",
+
+  "saved": "0013",
+  "saved_view": "0014",
+
+  "archive": "0015"
+}

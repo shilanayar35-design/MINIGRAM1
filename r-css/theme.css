@@ -1,0 +1,7 @@
+/* Example for light mode override */
+:root[data-theme="light"] {
+  --bg: #fff;
+  --fg: #000;
+  --muted: rgba(0,0,0,0.4);
+  --accent: #ff3040;
+}
